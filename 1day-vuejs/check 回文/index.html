@@ -1,0 +1,32 @@
+<html>
+
+    <head> 
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="style.css">
+       
+        
+    </head>
+    
+    
+    <body>
+        
+        
+        <div id="app">
+            <h1>回文chekc</h1>
+            <label for="inStr">문자열을 입력하세요: </label>
+            <input type="text" name="inStr" v-model="inStr" />
+            <p>{{ kaibun() }}</p>
+        </div>
+        
+        <!-- javascript 불러오기 -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+        <script src="./sample1.js"></script>
+        
+    
+    
+    </body>
+
+</html>
