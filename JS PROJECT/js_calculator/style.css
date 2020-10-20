@@ -1,0 +1,59 @@
+table {
+    background-color: RGB(249, 247, 238);
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    font-size: 20px;
+
+        
+}
+
+td {
+    height: 60px;
+    width: 60px;
+}
+
+#outcome {
+    
+    width: 100%;
+    color: white;
+    border-radius: 10px;
+    text-align: right;
+    
+}
+
+tr:first-child td {
+    background-color: RGB(240, 140, 141);
+    border-radius: 10px;
+    padding-right: 10px;
+   
+}
+
+button {
+    
+    border: none;
+    display: block;
+    margin: 0 auto;
+    width: 46px;
+    height: 46px;
+    border-radius: 23px;
+    background-color: RGB(208, 71, 104);
+    color: white;
+    font-size: 20px;
+    
+}
+
+#ac, #ce {
+    
+    width: 92px;
+
+}
+
+#equal {
+    
+    width: 92px;
+}
+
+small {
+    display: block;
+    margin-top: 30px;
+}
