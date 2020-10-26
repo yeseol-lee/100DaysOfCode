@@ -1,0 +1,48 @@
+<!-- 
+Seven Boom!
+Create a function that takes an array of numbers and return "Boom!" if the number 7 appears in the array. Otherwise, return "there is no 7 in the array".
+
+Examples
+sevenBoom([1, 2, 3, 4, 5, 6, 7]) ➞ "Boom!"
+
+sevenBoom([8, 6, 33, 100]) ➞ "there is no 7 in the array"
+
+sevenBoom([2, 55, 60, 97, 86]) ➞ "Boom!"
+-->
+   
+
+   <script type="text/javascript">
+    function sevenBoom(arr) {
+        var check = false;
+
+        arr.forEach(function(element) {
+            //check the digit.
+            var digit = 0;
+            a = element;
+            while (a > 1) {
+                digit++;
+                a = a / 10;
+            }
+
+            //check there is 7
+            for (i = 1; i <= digit; i++) {
+                var left = element % 10;
+                element = element / 10;
+                if (Math.floor(left) == 7) {
+                    check = true;
+
+                }
+            }
+
+        });
+
+        if (check == true) {
+            return "Boom!";
+        } else {
+            return "there is no 7 in the array";
+        }
+
+
+    }
+
+</script>
