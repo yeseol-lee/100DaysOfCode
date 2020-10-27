@@ -1,0 +1,50 @@
+body {
+    background-color: RGB(248, 249, 250);
+    
+}
+
+#all-wrapper {
+    margin: 0 auto;
+    padding: 2rem;
+    width: 100%;
+    max-width: 900px;
+    background-color: white;
+}
+
+#all-wrapper>* {
+    margin-bottom: 20px;
+}
+
+/* filename div */
+#filename input {
+    float: right;
+}
+
+#filename {
+    
+    clear: both;
+}
+
+input[type="file"] {
+    width: 250px;
+}
+
+/* text-field div */
+#text-field {
+
+    background-color: antiquewhite;
+    padding: 20px;
+}
+
+#content {
+    
+    overflow-y: scroll;
+    height: 400px;
+}
+
+
+
+
+#most, #least, #stats {
+    background-color:aliceblue;
+}
