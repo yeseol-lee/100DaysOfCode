@@ -42,7 +42,7 @@
         <!-- the Most used words -->
         <div id="most">
             <h2>The Most Used Words</h2>
-            <ul></ul>
+            <ul id="mostUsed"></ul>
             <lable>except: </lable>
             <input type="text" id="most-input">
             <button id="most-button">GO!</button>
@@ -51,7 +51,7 @@
         <!-- the Least used words -->
         <div id="least">
             <h2>The Least Used Words</h2>
-            <ul></ul>
+            <ul id="leastUsed"></ul>
             <lable>except: </lable>
             <input type="text" id="least-input">
             <button id="least-button">GO!</button>
@@ -68,6 +68,12 @@
         </div>
 
     </div>
+
+    <script id="template-ul-items" type="text/template">
+        <li>
+               {{val}}
+        </li>    
+    </script>
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
