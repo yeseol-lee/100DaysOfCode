@@ -1,0 +1,18 @@
+
+<script type="text/javascript">
+
+    function reverse(sentence) {
+        var length = sentence.length;
+        var arr1 = [...sentence];
+        var arr2 = [];
+        
+        for (i = 0; i < length; i++) {
+            let a = length - 1 - i;
+            arr2[i] = arr1[a];
+        }
+        
+        console.log(arr2.join(""));
+        
+    }
+
+</script>

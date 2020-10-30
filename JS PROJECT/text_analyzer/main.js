@@ -1,62 +1,101 @@
-//문제: html에서 받아온 파일이 텍스트인지 모름. tolowercase()함수가 적용안됨. string에만 적용가능. string으로 읽어들이기 하는중...
+//95번째줄 인풋에 입력하면 스톱월드 배열로 추가하는거 하는중.
+
 //receive file from html and display
 document.getElementById("input-file").addEventListener("change", handleFiles);
 
+//remove selected word from the most list
+document.getElementById("most-button").addEventListener("click", rmFromList("most-input"));
+
+//remove selected word from the least list
+document.getElementById("least-button").addEventListener("click",rmFromList("least-input"));
+
+
+var stopWords = [];
+
 function handleFiles(event) {
-    //variable to save entire text
-    var text;
+    let text;
+    const content = document.getElementById("content");
 
-    const input = event.target;
-    if ('files' in input && input.files.length > 0) {
-        placeFileContent(
-            document.getElementById('content'),
-            input.files[0])
+
+    //read file and save to variable text to string.
+    var fr = new FileReader();
+    fr.onload = function (e) {
+
+        text = e.target.result;
+
+        //remove line breaks and carriage returns and replace with a <br>
+        text = text.replace(/(?:\r\n|\r|\n)/g, '<br>');
+        write(text);
+
+        getDocStats(text);
     }
+    fr.readAsText(event.target.files[0]);
 
-    console.log(input.files[0]);
-    
-    //write doc stats in html
-    getDocStats(text);
 }
 
-function placeFileContent(target, file) {
-    readFileContent(file).then(content => {
-
-        //make text file's look good
-        content = content.replace(/(?:\r\n|\r|\n)/g, '<br>');
-
-        //save content to text For using later.
-        text = content;
-
-        target.innerHTML = content;
-    }).catch(error => console.log(error))
-}
-
-function readFileContent(file) {
-    const reader = new FileReader()
-    return new Promise((resolve, reject) => {
-        reader.onload = event => resolve(event.target.result)
-        reader.onerror = error => reject(error)
-        reader.readAsText(file)
-    })
+//function write text into content div.
+function write(string) {
+    content.innerHTML = string;
 }
 
 
-
-//get DocStats
+//search the Doc Stats 아직 수정덜됨
 function getDocStats(fileContent) {
 
     var docLength = document.getElementById("docLength");
     var wordCount = document.getElementById("wordCount");
     var charCount = document.getElementById("charCount");
 
-    console.log(typeof(fileContent));
-    //not working
-    /*let text = fileContent.toLowerCase();
-    console.log(text);
-    let wordArray = text.match(/\b\S+\b/g);
+    let lowerText = fileContent.toLowerCase();
+    let wordArray = lowerText.match(/\b\S+\b/g);
     let wordDictionary = {};
 
-    var uncommonWords = [];
-    */
+
+    //Count every word in the wordArray
+    for (let word in wordArray) {
+        let wordValue = wordArray[word];
+        if (wordDictionary[wordValue] > 0) {
+            wordDictionary[wordValue] += 1;
+        } else {
+            wordDictionary[wordValue] = 1;
+        }
+    }
+    
+    //sort the array
+    let wordList = sortProperties(wordDictionary);
+    
+    console.log(wordList);
+
+
+
+}
+
+//sort object in order of number
+function sortProperties(obj) {
+    //first convert the object to an array
+    let rtnArray = Object.entries(obj);
+
+    //Sort the array
+    rtnArray.sort(function (first, second) {
+        return second[1] - first[1];
+    });
+
+    return rtnArray;
+}
+
+function rmFromList(inputID) {
+    
+    renewStopWord(inputID);
+    
+}
+
+
+//renew stopWord array
+function renewStopWord(inputID) {
+    
+    let word = document.getElementById(inputID).value;
+    
+    console.log(word);
+    //stopWords.push(word);
+    //console.log(stopWords);
 }
