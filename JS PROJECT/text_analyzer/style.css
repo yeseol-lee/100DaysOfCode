@@ -25,14 +25,28 @@ body {
     clear: both;
 }
 
+
 input[type="file"] {
     width: 250px;
+}
+
+/*search-bar */
+
+#keyword {
+
+    width: calc(100% - 95px);
+    float: left;   
+}
+
+#search-button {
+    
+    width: 95px;
 }
 
 /* text-field div */
 #text-field {
 
-    background-color: antiquewhite;
+    background-color: RGB(241, 243, 244);
     padding: 20px;
 }
 
@@ -46,5 +60,6 @@ input[type="file"] {
 
 
 #most, #least, #stats {
-    background-color:aliceblue;
+    border: 1px solid RGB(103, 195, 165);
+    padding: 10px;
 }
